@@ -98,10 +98,35 @@ story
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .story {
+	display: none;
 	width: 810px;
 	padding: 10px;
 	float: left;
 }
+
+	.story .crumbs {
+		width: 100%;
+		padding: 3px 0;
+		border-top: 2px #CDCDCD solid;
+		border-bottom: 2px #CDCDCD solid;
+		float: left;
+	}
+
+		.story .crumbs ul {
+			padding: 0 0 0 10px;
+			float: left;
+			font-size: 11px;
+			color: #036DBE;
+		}
+
+			.story .crumbs ul li {
+				margin: 0 10px 0 0;
+				float: left;
+			}
+
+				.story .crumbs ul li a {
+					font-weight: bold;
+				}
 
 	.story .info {
 		width: 100%;
@@ -117,7 +142,9 @@ story
 
 		.story .info .meta {
 			width: 100%;
+			margin: 5px 0 0 0;
 			float: left;
+			font-size: 11px;
 		}
 
 	.story .left {
@@ -129,6 +156,7 @@ story
 			width: 520px;
 			margin: 0 -535px 0 0;
 			float: right;
+			font-size: 11px;
 		}
 
 			.story .left .social li {
@@ -168,7 +196,7 @@ story
 						}
 
 				.story .left .social li a strong {
-					margin: 0 0 0 10px;
+					padding: 0 0 0 10px;
 					float: left;
 					line-height: 20px;
 					font-weight: normal;
@@ -199,6 +227,7 @@ story
 			width: 260px;
 			margin: 10px 0 0 0;
 			float: left;
+			line-height: 14px;
 		}
 
 	.story .right {
@@ -222,6 +251,7 @@ story
 			width: 100%;
 			margin: 20px 0 0 0;
 			float: left;
+			line-height: 18px;
 			-webkit-column-count: 2;
 			-webkit-column-gap: 15px;
 			-moz-column-count: 2;
@@ -237,33 +267,21 @@ story
 
 /*
 
-wrappers
+feed list
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-.crumbs {
+.feed_list {
+	display: none;
 	width: 100%;
-	padding: 3px 0;
-	border-top: 2px #CDCDCD solid;
-	border-bottom: 2px #CDCDCD solid;
+	padding: 10px 0;
 	float: left;
 }
 
-	.crumbs ul {
-		padding: 0 0 0 10px;
+	.feed_list .feed_item {
+		margin: 0 0 10px 0;
 		float: left;
-		font-size: 11px;
-		color: #036DBE;
 	}
-
-		.crumbs ul li {
-			margin: 0 10px 0 0;
-			float: left;
-		}
-
-			.crumbs ul li a {
-				font-weight: bold;
-			}
 
 
 /*
@@ -279,9 +297,28 @@ when mobile calls, CSS responds
 		float: left;
 	}
 
+		.story .info {
+			padding: 10px 0 5px 0;
+		}
+
+			.story .info .title {
+				margin: 20px 0 0 0;
+			}
+
+			.story .info .meta {
+				left: 0px;
+				top: 4px;
+				position: absolute;
+			}
+
 		.story .left {
 			width: 460px;
 		}
+
+			.story .left .photo img {
+				width: 260px;
+				border: none;
+			}
 
 			.story .left .social {
 				width: 460px;
@@ -300,6 +337,10 @@ when mobile calls, CSS responds
 				padding: 0;
 				float: right;
 				color: #898989;
+			}
+
+			.story .left .photo_desc {
+				margin: 5px 0 0 0;
 			}
 
 		.story .right {
