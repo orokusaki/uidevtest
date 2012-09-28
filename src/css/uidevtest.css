@@ -97,6 +97,28 @@ em, em * {
 
 /*
 
+noscript
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+noscript {
+	width: 90%;
+	padding: 5%;
+	float: left;
+}
+
+	noscript .content {
+		width: 90%;
+		padding: 4.8%;
+		border: 1px #FFB3B3 solid;
+		border-radius: 5px;
+		color: #000;
+		background: #FFE4E7;
+	}
+
+
+/*
+
 story
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -277,13 +299,13 @@ feed list
 
 .feed_list {
 	display: none;
-	width: 460px;
+	width: 810px;
 	padding: 10px;
 	float: left;
 }
 
 	.feed_list .feed_item {
-		width: 460px;
+		width: 810px;
 		margin: 0 0 15px 0;
 		float: left;
 	}
@@ -302,13 +324,13 @@ feed list
 			}
 
 		.feed_list .feed_item .desc {
-			width: 313px;
+			width: 663px;
 			float: right;
 		}
 
 			.feed_list .feed_item .desc .title {
 				width: 100%;
-				margin: 0 0 5px 0;
+				margin: 5px 0 0 0;
 				float: left;
 				font-size: 16px;
 			}
@@ -400,5 +422,17 @@ when mobile calls, CSS responds
 				-webkit-column-count: 1;
 				-moz-column-count: 1;
 				column-count: 1;
+			}
+
+	.feed_list {
+		width: 460px;
+	}
+
+		.feed_list .feed_item {
+			width: 460px;
+		}
+
+			.feed_list .feed_item .desc {
+				width: 313px;
 			}
 }
