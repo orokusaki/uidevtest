@@ -90,6 +90,10 @@ em, em * {
 	font-style: italic;
 }
 
+.none {
+	display: none;
+}
+
 
 /*
 
@@ -273,15 +277,56 @@ feed list
 
 .feed_list {
 	display: none;
-	width: 100%;
-	padding: 10px 0;
+	width: 460px;
+	padding: 10px;
 	float: left;
 }
 
 	.feed_list .feed_item {
-		margin: 0 0 10px 0;
+		width: 460px;
+		margin: 0 0 15px 0;
 		float: left;
 	}
+
+		.feed_list .feed_item .thumb {
+			width: 128px;
+			border: 2px #FFF solid;
+			float: left;
+			box-shadow: 3px 3px 3px #666;
+			background: #FFF;
+		}
+
+			.feed_list .feed_item .thumb img {
+				width: 128px;
+				float: left;
+			}
+
+		.feed_list .feed_item .desc {
+			width: 313px;
+			float: right;
+		}
+
+			.feed_list .feed_item .desc .title {
+				width: 100%;
+				margin: 0 0 5px 0;
+				float: left;
+				font-size: 16px;
+			}
+
+				.feed_list .feed_item .desc .title a {
+					font-weight: bold;
+				}
+
+			.feed_list .feed_item .desc .categories {
+				width: 100%;
+				float: left;
+			}
+
+			.feed_list .feed_item .desc .meta {
+				width: 100%;
+				margin: 15px 0 5px 0;
+				float: left;
+			}
 
 
 /*

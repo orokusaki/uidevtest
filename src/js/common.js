@@ -18,8 +18,8 @@ jQuery(function($){
 		// Displays a story provided an integer representing the story's
 		// 0-based index among the stories data feed, else displays a 404
 
-		$('.story').toggle();
-		$('.list_feed').toggle();
+		$('.story').show();
+		$('.feed_list').hide();
 
 		// Remove existing content
 		clear_story();
@@ -45,13 +45,12 @@ jQuery(function($){
 			// Publish and Update dates
 			var pub_date = ap_date(story.pub_date);
 			var updated = ap_date(story.updated);
-			$('.story .info .meta').text('Updated: ' + updated.toLocaleString() + ' | Posted: ' + pub_date.toLocaleString());
+			$('.story .info .meta').text('Updated: ' + updated + ' | Posted: ' + pub_date);
 
 			// Caption (uses summary when caption is null - sneaky, sneaky)
 			var caption = story.lead_photo_caption;
-			if(caption === null){
+			if(caption === null)
 				caption = story.summary;
-			}
 			$('.story .left .photo_desc').text(caption);
 
 			// Main photo and credit
@@ -107,11 +106,47 @@ jQuery(function($){
 
 	function display_list(){
 		// Displays a list of stories from the stories data feed
-		$('.story').toggle();
-		$('.list_feed').toggle();
+		$('.story').hide();
+		$('.feed_list').show();
 		clear_story();
+		var feed_item_template = $('#feed_item_template .feed_item');
 		$.each($('body').data('stories'), function(idx, story){
+			var feed_item = feed_item_template.clone();
 
+			// Thumbnail
+			var caption = story.lead_photo_caption;
+			if(caption === null)
+				caption = story.summary;
+			$('<img>')
+				.attr('src', story.lead_photo_image_thumb)
+				.attr('alt', caption)
+				.appendTo(feed_item.find('.thumb'));
+
+			// Title
+			var story_num = idx + 1;
+			if(story_num < 10)
+				story_num = '0' + story_num;
+			var story_link = 'index.html?story=sto' + story_num;
+			$('<a>')
+				.attr('href', story_link)
+				.text(story.title)
+				.appendTo(feed_item.find('.title'));
+
+			// Categories
+			feed_item.find('.categories').text(story.categories_name.join(' / '));
+
+			// Meta
+			var meta = feed_item.find('.meta');
+			var pub_date = ap_date(story.pub_date);
+			var updated = ap_date(story.updated);
+			$('<p>')
+				.text('Posted: ' + pub_date)
+				.appendTo(meta);
+			$('<p>')
+				.text('Updated: ' + updated)
+				.appendTo(meta);
+
+			feed_item.appendTo($('.feed_list'));
 		});
 	}
 });
