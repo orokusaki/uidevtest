@@ -7,72 +7,7 @@
 		<title>Articles</title>
 		<link type="text/css" rel="stylesheet" media="screen" href="../css/uidevtest.css" />
 		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
-		<script type="text/javascript">
-			jQuery(function($){
-				$.getJSON('../js/uidevtest-data.js', function(data){
-					// Attach the feed to the body so that the data can be
-					// quickly used later without the need for more requests
-					$('body').data('stories', data.objects);
-
-					// If a story was requested, display it, otherwise display
-					// the list of the stories in the lively data feed
-					var story_idx = get_story_idx();
-					if(story_idx !== null){
-						display_story(story_idx);
-					} else {
-						display_list();
-					}
-				});
-
-				function display_story(idx){
-					// Displays a story provided an integer representing the
-					// story's 0-based index among the stories data feed
-					var story = get_story(idx);
-					if(story === null){
-						// Display 404
-					} else {
-						// Kapa-Chow!
-					}
-				}
-
-				function display_list(){
-					// Displays a list of stories from the stories data feed
-					$.each($('body').data('stories'), function(idx, story){
-						// Go to town!
-					});
-				}
-
-				function get_story(idx){
-					// Returns a story from the stories data feed for the given
-					// index , or `null`, if one doesn't exist for the index
-					var story = $('body').data('stories')[idx];
-					if(typeof(story) == 'undefined')
-						return null;
-					return story;
-				}
-			});
-
-			function get_story_idx(){
-				// Returns a 0-based story index, based on a "story" URL param,
-				// or returns `null`, if story index not applicable
-				var prefix = 'sto';
-				var param = getURLParameter('story');
-				// Create a regexp that allows 2 digits for the story index,
-				// since that's what the `sto01`
-				var regexp = new RegExp('^' + prefix + '\\d{2}$');
-				if(param !== null && param.match(regexp)){
-					var idx = parseInt(param.slice(prefix.length));
-					if(!isNaN(idx))
-						return idx - 1;
-				}
-				return null;
-			}
-
-			function getURLParameter(name){
-				// A "universal" URL param function from SO
-				return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-			}
-		</script>
+		<script type="text/javascript" src="../js/common.js"></script>
 	</head>
 	<body>
 		<div class="story">
@@ -90,9 +25,58 @@
 				</ul>
 			</div><!--/.crumbs-->
 			<div class="info">
-				<h1 class="title">The man who said he was cool, but wasn't</h1>
-				<p class="meta">Updated bla bla | and this and that adoifa sdo fdsifiaosd </p>
+				<h1 class="title">loading&hellip;</h1>
+				<p class="meta">loading&hellip;</p>
 			</div><!--/.info-->
+			<div class="left">
+				<ul class="social">
+					<li class="comment">
+						<a href="#">
+							<small>
+								<img src="../images/uidevtest-sprites.png" alt="Comment" />
+							</small>
+							<strong>Comment</strong>
+						</a>
+					</li>
+					<li class="share">
+						<a href="#">
+							<small>
+								<img src="../images/uidevtest-sprites.png" alt="Share" />
+							</small>
+							<strong>Share</strong>
+						</a>
+					</li>
+					<li class="favorite">
+						<a href="#">
+							<small>
+								<img src="../images/uidevtest-sprites.png" alt="Favorite" />
+							</small>
+							<strong>Favorite</strong>
+						</a>
+					</li>
+					<li class="vote">
+						<a href="#">
+							<small>
+								<img src="../images/uidevtest-sprites.png" alt="Vote" />
+							</small>
+							<strong>Vote</strong>
+						</a>
+					</li>
+				</ul>
+				<figure class="photo">
+					<img src="http://media.cmgdigital.com/shared/lt/lt_cache/resize/260x230/img/photos/2012/09/04/21/17/jetski_accident_0904.jpg" alt="Photo" />
+					<figcaption>loading&hellip;</figcaption>
+				</figure><!--/.photo-->
+				<div class="photo_desc">
+					<p>loading&hellip;</p>
+				</div><!--/.photo_desc-->
+			</div><!--/.left-->
+			<div class="right">
+				<p class="author">loading&hellip;</p>
+				<div class="content">
+					<p>Three members of a San Jose family were hospitalized after their personal watercraft collided in Lake Tahoe on Monday.</p> <p>Sufian and Subia Kazmi and their children were riding rented personal watercraft about a quarter-mile off of Timber Cove Beach when the accident happened around 9:45 a.m., South Lake Tahoe police said.</p> <p>Subia Kazmi had the couple's a 9-year-old daughter riding behind her on one watercraft, and Sufian Kazmi, 35, had their 5-year-old son with him on another, police said.</p> <p>They had been riding the two watercraft for about half an hour when the front of the father's craft struck the side of the mother's craft while both were going about 30 mph, police said.</p> <p>The family was rescued by employees at the nearby Timber Cove Marina, where they had rented the watercraft, and brought back to the marina in two boats.</p> <p>The son and mother were taken to Barton Memorial Hospital with head and leg injuries. The mother's leg was broken, police said.</p> <p>The daughter was flown to Reno, Nev., to be treated for serious injuries to her leg and foot, including a compound fracture and possibly a severed toe, police said.</p> <p>The injuries are not considered life-threatening. The father was not hurt.</p> <p>The family had not had any previous experience operating personal watercraft, but were wearing lifejackets, police said.</p>
+				</div><!--/.content-->
+			</div><!--/.story-->
 		</div><!--/.story-->
 	</body>
 </html>
