@@ -29,7 +29,8 @@ jQuery(function($){
 
 		if(story === null){
 			// Display 404
-			$('.story .info .title').text('Error 404');
+			$('title').text('Error - 404');
+			$('.story .info .title').text('Error - 404');
 			$('.story .info .meta').text('(story not found)');
 			$('<img>')
 				.attr('src', 'http://placekitten.com/260/350')
@@ -38,6 +39,9 @@ jQuery(function($){
 				.prependTo($('.story .left .photo'));
 		} else {
 			// Display story
+
+			// Page title
+			$('title').text(story.title);
 
 			// Headline
 			$('.story .info .title').text(story.title);
@@ -106,9 +110,13 @@ jQuery(function($){
 
 	function display_list(){
 		// Displays a list of stories from the stories data feed
+
+		// Page title
+		$('title').text('News');
+
 		$('.story').hide();
 		$('.feed_list').show();
-		clear_story();
+
 		var feed_item_template = $('#feed_item_template .feed_item');
 		$.each($('body').data('stories'), function(idx, story){
 			var feed_item = feed_item_template.clone();
