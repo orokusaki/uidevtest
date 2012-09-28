@@ -61,8 +61,145 @@ body, html {
 	height: 100%;
 	border: none;
 	top: 0;
-	font: 100%/1.125em Arial, sans-serif;
+	font: 14px/1.3 Arial, sans-serif;
 	color: #444444;
 	background: #FFF;
 	text-align: left;
+}
+
+
+/*
+
+global styles
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+a {
+	color: #036DBE;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+strong, strong * {
+	font-weight: bold;
+}
+
+em, em * {
+	font-style: italic;
+}
+
+
+/*
+
+story
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.story {
+	width: 810px;
+	padding: 10px;
+	float: left;
+}
+
+	.story .info {
+		width: 100%;
+		padding: 10px 0;
+		float: left;
+	}
+
+		.story .info .title {
+			width: 100%;
+			float: left;
+			font-size: 24px;
+		}
+
+		.story .info .meta {
+			width: 100%;
+			float: left;
+		}
+
+	.story .left {
+		width: 260px;
+		float: left;
+	}
+
+	.story .right {
+		width: 535px;
+		float: left;
+	}
+
+		.story .right .credit {
+			width: 100%;
+			float: left;
+		}
+
+		.story .right .content {
+			width: 100%;
+			margin: 10px 0 0 0;
+			float: left;
+			-webkit-column-count: 2;
+			-webkit-column-gap: 15px;
+			-moz-column-count: 2;
+			-moz-column-gap: 15px;
+			column-count: 1;
+			column-gap: 15px;
+		}
+
+
+/*
+
+wrappers
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.crumbs {
+	width: 100%;
+	padding: 3px 0;
+	border-top: 2px #CDCDCD solid;
+	border-bottom: 2px #CDCDCD solid;
+	float: left;
+}
+
+	.crumbs ul {
+		padding: 0 0 0 10px;
+		float: left;
+		font-size: 11px;
+		color: #036DBE;
+	}
+
+		.crumbs ul li {
+			margin: 0 10px 0 0;
+			float: left;
+		}
+
+			.crumbs ul li a {
+				font-weight: bold;
+			}
+
+
+/*
+
+when mobile calls, CSS responds
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width: 480px) {
+	.story {
+		width: 460px;
+		padding: 10px;
+		float: left;
+		background: #EEE;
+	}
+
+		.story .right {
+			width: 460px;
+		}
+
+			.story .right .content {
+				-webkit-column-count: 1;
+				-moz-column-count: 1;
+				column-count: 1;
+			}
 }
