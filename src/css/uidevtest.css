@@ -62,7 +62,7 @@ body, html {
 	border: none;
 	top: 0;
 	font: 14px/1.2 Arial, sans-serif;
-	color: #444444;
+	color: #444;
 	background: #FFF;
 	text-align: left;
 }
@@ -170,6 +170,7 @@ story
 				.story .left .social li a strong {
 					margin: 0 0 0 10px;
 					float: left;
+					line-height: 20px;
 					font-weight: normal;
 					text-decoration: underline;
 				}
@@ -196,6 +197,7 @@ story
 
 		.story .left .photo_desc {
 			width: 260px;
+			margin: 10px 0 0 0;
 			float: left;
 		}
 
@@ -210,6 +212,11 @@ story
 			margin: 20px 0 0 0;
 			float: left;
 		}
+
+			.story .right .author strong {
+				color: #036DBE;
+				font-weight: normal;
+			}
 
 		.story .right .content {
 			width: 100%;
