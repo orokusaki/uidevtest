@@ -38,7 +38,7 @@ jQuery(function($){
 			$('.story .info .title').text(story.title);
 			var pub_date = ap_date(story.pub_date);
 			var updated = ap_date(story.updated);
-			$('.story .info .meta').text('Updated ' + pub_date.toLocaleString() + ' | Updated ' + updated.toLocaleString());
+			$('.story .info .meta').text('Updated: ' + updated.toLocaleString() + ' | Posted: ' + pub_date.toLocaleString());
 			var caption = story.lead_photo_caption;
 			if(caption === null){
 				caption = story.summary;
@@ -75,8 +75,14 @@ jQuery(function($){
 					.text(category_name)
 					.appendTo(crumb)
 			});
+			// Current story crumb
+			$('<strong>').html('&gt;').appendTo($('<li>').appendTo(crumbs));
+			var crumb_title = story.title;
+			if(crumb_title.length > 30){
+				crumb_title = crumb_title.slice(0, 30) + '&hellip;';
+			}
 			$('<strong>')
-				.text(story.title)
+				.html(crumb_title)
 				.appendTo($('<li>').appendTo(crumbs));
 		}
 	}
